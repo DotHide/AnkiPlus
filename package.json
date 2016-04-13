@@ -36,7 +36,6 @@
     "electron-debug": "^0.5.0"
   },
   "devDependencies": {
-    "angular": "1.5.3",
     "commitizen": "2.7.6",
     "cz-conventional-changelog": "1.1.5",
     "electron-packager": "^6.0.0",
