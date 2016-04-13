@@ -26,4 +26,4 @@ Builds the app for OS X, Linux, and Windows, using [electron-packager](https://g
 
 ## License
 
-MIT © [Martin](http://www.dothide.com)
+MIT © [Martin_nett](http://www.dothide.com)
