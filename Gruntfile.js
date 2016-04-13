@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
-  
+
   //Project configuration
   grunt.initConfig({
     // Define Datas
@@ -14,10 +14,15 @@ module.exports = function(grunt) {
       name: 'ankiplus',
       src_path: 'app/',
       dist_path: 'dist/',
-      test_path: 'spec/' 
+      test_path: 'spec/'
     },
 
     // Config Tasks
+    watch: {
+      files: ['bower_components/*'],
+      tasks: ['wiredep:dev']
+    },
+
     wiredep: {
       // Dev Target
       dev: {
@@ -30,4 +35,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'wiredep:dev'
   ]);
+
+  grunt.registerTask('changes', [
+    'watch'
+  ])
 }
