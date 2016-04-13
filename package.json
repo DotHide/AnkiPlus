@@ -1,6 +1,6 @@
 {
   "name": "ankiplus",
-  "productName": "Ankiplus",
+  "productName": "AnkiPlus",
   "description": "Another Anki Application using Electron",
   "license": "MIT",
   "version": "0.0.0-semantically-released",
@@ -9,14 +9,15 @@
     "url": "https://github.com/DotHide/AnkiPlus.git"
   },
   "author": {
-    "name": "Martin",
+    "name": "Martin_nett",
     "email": "dothide@gmail.com",
-    "url": "index.html"
+    "url": "www.dothide.com"
   },
   "scripts": {
     "test": "karma start karma.conf.js",
     "test:single": "karma start karma-travis.conf.js",
     "start": "electron .",
+    "commit": "git-cz",
     "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -35,6 +36,8 @@
   },
   "devDependencies": {
     "angular": "1.5.3",
+    "commitizen": "2.7.6",
+    "cz-conventional-changelog": "1.1.5",
     "electron-packager": "^6.0.0",
     "electron-prebuilt": "^0.37.5",
     "jasmine-core": "2.4.1",
@@ -42,9 +45,9 @@
     "karma-jasmine": "0.3.8",
     "karma-phantomjs-launcher": "1.0.0",
     "phantomjs-prebuilt": "2.1.7",
+    "semantic-release": "^4.3.5",
     "semantic-release-cli": "1.4.1",
-    "xo": "^0.14.0",
-    "semantic-release": "^4.3.5"
+    "xo": "^0.14.0"
   },
   "xo": {
     "esnext": true,
@@ -52,5 +55,10 @@
       "node",
       "browser"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
