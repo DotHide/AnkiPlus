@@ -1,7 +1,7 @@
 {
   "name": "ankiplus",
   "productName": "Ankiplus",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Another Anki Application using Electron",
   "license": "MIT",
   "repository": "DotHide/AnkiPlus",
@@ -11,7 +11,8 @@
     "url": "index.html"
   },
   "scripts": {
-    "test": "xo",
+    "test": "karma start karma.conf.js",
+    "test:single": "karma start karma-travis.conf.js",
     "start": "electron .",
     "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
   },
@@ -21,6 +22,7 @@
     "index.css"
   ],
   "keywords": [
+    "anki",
     "electron-app",
     "electron"
   ],
@@ -31,6 +33,11 @@
     "angular": "1.5.3",
     "electron-packager": "^6.0.0",
     "electron-prebuilt": "^0.37.5",
+    "jasmine-core": "2.4.1",
+    "karma": "0.13.22",
+    "karma-jasmine": "0.3.8",
+    "karma-phantomjs-launcher": "1.0.0",
+    "phantomjs-prebuilt": "2.1.7",
     "xo": "^0.14.0"
   },
   "xo": {
