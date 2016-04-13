@@ -12,15 +12,33 @@ module.exports = function(grunt) {
     // Define Datas
     app: {
       name: 'ankiplus',
-      src_path: 'app/',
-      dist_path: 'dist/',
-      test_path: 'spec/'
+      src_path: 'app',
+      dist_path: 'dist',
+      test_path: 'spec'
     },
 
     // Config Tasks
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= app.dist_path %>/*'
+          ]
+        }]
+      }
+    },
+
     watch: {
-      files: ['bower_components/*'],
-      tasks: ['wiredep:dev']
+      wiredep: {
+        files: ['bower_components/*'],
+        tasks: ['wiredep:dev']
+      },
+      inject: {
+        files: ['<%= app.src_path %>/*'],
+        tasks: ['injector', 'ngAnnotate']
+      }
     },
 
     wiredep: {
@@ -28,15 +46,46 @@ module.exports = function(grunt) {
       dev: {
         src: ['index.html']
       }
+    },
+
+    injector: {
+      options: {
+        template: 'index.html',
+        relative: true
+      },
+      local_dependencies: {
+        files: {
+          'index.html': [
+            '<%= app.dist_path %>/{,*/}*.module.js',
+            '<%= app.dist_path %>/{,*/}*.js',
+          ]
+        }
+      }
+    },
+
+    ngAnnotate: {
+      options: {
+        singleQuotes: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= app.src_path %>',
+          src: '{,*/}*.js',
+          dest: '<%= app.dist_path %>',
+          ext: '.js',
+          extDot: 'last'
+        }]
+      }
     }
   });
 
   // Register Tasks
   grunt.registerTask('default', [
-    'wiredep:dev'
-  ]);
-
-  grunt.registerTask('changes', [
+    'clean',
+    'wiredep',
+    'injector',
+    'ngAnnotate',
     'watch'
-  ])
+  ]);
 }

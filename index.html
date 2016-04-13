@@ -5,20 +5,22 @@
   <meta charset="utf-8">
   <title>Electron boilerplate</title>
   <link rel="stylesheet" href="index.css">
+</head>
+
+<body ng-app="ankiplus">
+  <!--[if lt IE 10]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div ui-view></div>
+  
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <!-- endbower -->
-</head>
-
-<body ng-app>
-  <div class="container">
-    <header>
-      <h1>Electron boilerplate</h1>
-    </header>
-    <section class="main"></section>
-    <footer></footer>
-  </div>
+  <!-- injector:js -->
+  <script src="/dist/app.module.js"></script>
+  <script src="/dist/core/core.module.js"></script>
+  <!-- endinjector -->
 </body>
 
 </html>
