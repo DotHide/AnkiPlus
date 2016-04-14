@@ -13,6 +13,7 @@ module.exports = function(grunt) {
     app: {
       name: 'ankiplus',
       src_path: 'app',
+      build_path: 'build',
       dist_path: 'dist',
       test_path: 'spec'
     },
@@ -24,6 +25,7 @@ module.exports = function(grunt) {
           dot: true,
           src: [
             '.tmp',
+            '<%= app.build_path %>/*',
             '<%= app.dist_path %>/*'
           ]
         }]
@@ -36,7 +38,7 @@ module.exports = function(grunt) {
         tasks: ['wiredep:dev']
       },
       inject: {
-        files: ['<%= app.src_path %>/*'],
+        files: ['<%= app.src_path %>/**'],
         tasks: ['injector', 'ngAnnotate']
       }
     },
@@ -51,13 +53,13 @@ module.exports = function(grunt) {
     injector: {
       options: {
         template: 'index.html',
-        relative: true
+        addRootSlash: false
       },
       local_dependencies: {
         files: {
           'index.html': [
-            '<%= app.dist_path %>/{,*/}*.module.js',
-            '<%= app.dist_path %>/{,*/}*.js',
+            '<%= app.build_path %>/{,*/}*.module.dev.js',
+            '<%= app.build_path %>/{,*/}*.dev.js',
           ]
         }
       }
@@ -72,8 +74,8 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= app.src_path %>',
           src: '{,*/}*.js',
-          dest: '<%= app.dist_path %>',
-          ext: '.js',
+          dest: '<%= app.build_path %>',
+          ext: '.dev.js',
           extDot: 'last'
         }]
       }
