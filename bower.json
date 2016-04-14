@@ -24,6 +24,7 @@
     "angular-ui-router": "^0.2.18",
     "angular-animate": "^1.5.3",
     "angular-sanitize": "^1.5.3",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "moment": "^2.12.0"
   }
 }
