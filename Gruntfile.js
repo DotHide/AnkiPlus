@@ -58,8 +58,8 @@ module.exports = function(grunt) {
       local_dependencies: {
         files: {
           'index.html': [
-            '<%= app.build_path %>/{,*/}*.module.dev.js',
-            '<%= app.build_path %>/{,*/}*.dev.js',
+            '<%= app.build_path %>/**/*.module.dev.js',
+            '<%= app.build_path %>/**/*.dev.js',
           ]
         }
       }
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= app.src_path %>',
-          src: '{,*/}*.js',
+          src: '**/*.js',
           dest: '<%= app.build_path %>',
           ext: '.dev.js',
           extDot: 'last'
