@@ -2,6 +2,9 @@
   'use strict';
 
   angular
-    .module('blocks.router', []);
-    
+    .module('blocks.router', [
+      'ui.router',
+      'blocks.logger'
+    ]);
+
 })();

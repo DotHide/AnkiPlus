@@ -59,6 +59,7 @@ module.exports = function(grunt) {
         files: {
           'index.html': [
             '<%= app.build_path %>/**/*.module.dev.js',
+            '<%= app.build_path %>/**/*.provider.dev.js',
             '<%= app.build_path %>/**/*.dev.js',
           ]
         }

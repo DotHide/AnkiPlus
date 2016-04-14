@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('blocks.exception', []);
-    
+    .module('blocks.exception', [
+      'blocks.logger'
+    ]);
+
 })();
