@@ -66,6 +66,41 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {
+      dist: {
+        options: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeComments: true, // Only if you don't use comment directives!
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= app.dist_path %>',
+          src: ['*.html'],
+          dest: '<%= app.dist_path %>'
+        }]
+      }
+    },
+
+    ngtemplates: {
+      dist: {
+        options: {
+          prefix: __dirname + '/app',
+          module: 'ankiplus',
+          htmlmin: '<%= htmlmin.dist.options %>',
+          // usemin: 'scripts/templates.js'
+        },
+        cwd: '<%= app.src_path %>',
+        src: '{,*/}*.html',
+        dest: '.tmp/scripts/templates.js'
+      }
+    },
+
     ngAnnotate: {
       options: {
         singleQuotes: true
@@ -88,6 +123,7 @@ module.exports = function(grunt) {
     'clean',
     'wiredep',
     'injector',
+    'ngtemplates',
     'ngAnnotate'
   ]);
 
