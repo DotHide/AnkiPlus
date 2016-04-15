@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  const path = require('path');
   const electron = require('electron');
   const app = electron.app;
 
@@ -21,7 +22,7 @@
       height: 768
     });
 
-    win.loadURL(`file://${__dirname}/index.html`);
+    win.loadURL(path.join('file://', __dirname, 'index.html'));
     win.on('closed', onClosed);
 
     return win;

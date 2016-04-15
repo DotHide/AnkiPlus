@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>AnkiPlus</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+  <!-- endbower -->
 </head>
 
 <body ng-app="ankiplus">
@@ -12,23 +15,26 @@
   <![endif]-->
   <div ui-view></div>
   
+  <script type="text/javascript">
+  window.toastr = require('toastr');
+  </script>
   <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/toastr/toastr.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <!-- endbower -->
   <!-- injector:js -->
-  <script src="build/app.module.dev.js"></script>
   <script src="build/blocks/exception/exception.module.dev.js"></script>
   <script src="build/blocks/logger/logger.module.dev.js"></script>
   <script src="build/blocks/router/router.module.dev.js"></script>
   <script src="build/core/core.module.dev.js"></script>
   <script src="build/blocks/exception/exception-handler.provider.dev.js"></script>
   <script src="build/blocks/router/router-helper.provider.dev.js"></script>
+  <script src="build/app.dev.js"></script>
   <script src="build/blocks/exception/exception.dev.js"></script>
   <script src="build/blocks/logger/logger.dev.js"></script>
   <script src="build/core/config.dev.js"></script>

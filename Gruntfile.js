@@ -60,7 +60,7 @@ module.exports = function(grunt) {
           'index.html': [
             '<%= app.build_path %>/**/*.module.dev.js',
             '<%= app.build_path %>/**/*.provider.dev.js',
-            '<%= app.build_path %>/**/*.dev.js',
+            '<%= app.build_path %>/**/*.dev.js'
           ]
         }
       }
@@ -88,7 +88,11 @@ module.exports = function(grunt) {
     'clean',
     'wiredep',
     'injector',
-    'ngAnnotate',
+    'ngAnnotate'
+  ]);
+
+  grunt.registerTask('dev', [
+    'default',
     'watch'
   ]);
 }

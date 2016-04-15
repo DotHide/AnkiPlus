@@ -16,7 +16,11 @@
     };
 
     this.$get = RouterHelper;
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
 
     this.configure = function(cfg) {
       angular.extend(config, cfg);
@@ -38,7 +42,7 @@
       };
 
       init();
-      
+
       return service;
 
       /* ============================== */
