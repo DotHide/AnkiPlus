@@ -4,3 +4,4 @@ build
 dist
 .tmp
 readme.html
+npm-debug.log
