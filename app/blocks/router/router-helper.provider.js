@@ -51,6 +51,8 @@
         states.forEach(function(state) {
           state.config.resolve =
             angular.extend(state.config.resolve || {}, config.resolveAlways);
+
+          state.config.templateUrl = [__dirname, state.config.templateUrl].join('/');
           $stateProvider.state(state.state, state.config);
         });
 

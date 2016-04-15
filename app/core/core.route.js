@@ -16,7 +16,7 @@
       state: '404',
       config: {
         url: '/404',
-        templateUrl: __dirname + '/app/core/404.html',
+        templateUrl: 'app/core/404.html',
         title: '404 Not Found'
       }
     }]
