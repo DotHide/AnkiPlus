@@ -23,8 +23,8 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/toastr/toastr.js',
       'bower_components/moment/moment.js',
-      'build/**/*.module.dev.js',
-      'build/**/*.dev.js',
+      'app/**/*.module.js',
+      'app/**/*.js',
       'spec/**/*.spec.js'
     ],
 
